@@ -6,7 +6,7 @@ const dividir = (a, b) => a / b;
 
 let exit = true;
 let opciones = ["1", "2", "3", "4"];
-let memoria = []; // Objeto que lleva registro de las operaciones
+let historial = []; // Objeto que lleva el historial de las operaciones
 
 // Función que solicita y valida los números ingresados
 const solicitarValidarNumero = (mensaje) => {
@@ -14,7 +14,7 @@ const solicitarValidarNumero = (mensaje) => {
     let input = prompt(mensaje);
     if (input === null) return null;
     input = input.trim();
-    if (input === " ") {
+    if (input === "") {
       alert("El campo no puede estar vacío");
       continue;
     }
@@ -29,14 +29,14 @@ const solicitarValidarNumero = (mensaje) => {
 
 // Función para mostrar el historial de la aplicación
 const mostrarHistorial = () => {
-  if (memoria.length === 0) {
+  if (historial.length === 0) {
     alert("No hay operaciones en el historial.");
     return;
   }
 
-  const texto = memoria.map((r, i) => `${i + 1}. [${r.hora}] ${r.operacion}: ${r.n1} y ${r.n2} = ${r.resultado}`).join("\n");
+  const historialImpreso = historial.map((r, i) => `${i + 1}. [${r.hora}] ${r.operacion}: ${r.n1} y ${r.n2} = ${r.resultado}`).join("\n");
 
-  alert("📋 Historial:\n\n" + texto);
+  alert("📋 Historial:\n\n" + historialImpreso);
 };
 
 do {
@@ -69,6 +69,8 @@ do {
 
   let resultado;
   let nombreOperacion;
+  
+  // Estructura condicional para la operación seleccionada
   switch (operacion) {
     case "1":
       resultado = sumar(n1, n2);
@@ -88,6 +90,7 @@ do {
       break;
   }
 
+  // Objeto litera para llevar un registro de las operaciones
   const registro = {
     operacion: nombreOperacion,
     n1,
@@ -96,12 +99,12 @@ do {
     hora: new Date().toLocaleDateString(),
   };
 
-  memoria.unshift(registro);
-
-  console.log(`${nombreOperacion}: ${n1} y ${n2} = ${resultado}`);
-  console.log("Historial: ", memoria);
+  historial.unshift(registro);
   alert(`${nombreOperacion}: ${n1} y ${n2} = ${resultado}`);
+  console.log(`${nombreOperacion}: ${n1} y ${n2} = ${resultado}`);
+  console.log("Historial: ", historial);
 } while (exit);
 
 alert("Saliendo de la aplicación, vuelva pronto 👋");
-console.table(memoria);
+// Imprime el historial en formato de tabla
+console.table(historial);
