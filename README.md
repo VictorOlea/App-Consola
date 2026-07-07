@@ -1,6 +1,8 @@
 # 💼 Proyecto Aplicación de Consola
 
-Una aplicación de consola simple, que permite a los usuarios realizar operaciones mátematicas básicas, como suma, resta
+Una aplicación de consola simple, que permite a los usuarios realizar operaciones mátematicas básicas, como suma, resta, multiplicación y división. También permite ver el historial de las operaciones realizadas desde que se ejecuta la aplicación.
+
+Una vez iniciada la aplicación, se solicitará al usuario seleccionar una opción en una ventana emergente. Si se selecciona una operación matemática, se le solicitará los números a operar y luego se mostrará el resultado. Si selecciona la opción historial, se mostrará el historial de las operaciones realizadas hasta el momento y si selecciona salir, saldrá de la aplicación. En Dev-Tools se imprimira el historial en formato tabla.
 
 El proyecto fue realizado con **HTML** y **JavaScript**.
 
@@ -73,6 +75,7 @@ const mostrarHistorial = () => {
 ### 4. Bucle Do While
 
 ```javascript
+// Ciclo que permite realizar las operaciones de forma continua
 do {
   let operacion = prompt("🖥 Ingrese la operación: \n 1-Suma | 2-Resta | 3-Multiplicación | 4-Dividir | 5-Ver Historial | 6-Salir");
 
@@ -101,7 +104,7 @@ do {
     continue;
   }
 
-  // Estructura condicional y Objeto registro de las operaciones
+  // Estructura condicional y objeto registro de las operaciones
 } while (exit);
 ```
 
@@ -154,7 +157,7 @@ const registro = {
 
 2. **Abrir** el archivo `index.html` en el navegador.
 
-3. **Abrir herramientas de desarrolador**
+3. **Abrir herramientas de desarrolador o Dev-Tools**
 
 4. Inicio de aplicación
 
@@ -176,7 +179,7 @@ const registro = {
 
 ![resultado](./public/resultado-suma.PNG)
 
-7. Seleccione historial
+7. Seleccione historial con la opción **5**
 
 ![Historial](./public/historial.PNG)
 

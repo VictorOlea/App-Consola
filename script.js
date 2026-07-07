@@ -39,6 +39,7 @@ const mostrarHistorial = () => {
   alert("📋 Historial:\n\n" + historialImpreso);
 };
 
+// Ciclo que permite realizar las operaciones de forma continua
 do {
   let operacion = prompt("🖥 Ingrese la operación: \n 1-Suma | 2-Resta | 3-Multiplicación | 4-Dividir | 5-Ver Historial | 6-Salir");
 
@@ -69,7 +70,7 @@ do {
 
   let resultado;
   let nombreOperacion;
-  
+
   // Estructura condicional para la operación seleccionada
   switch (operacion) {
     case "1":
@@ -96,7 +97,7 @@ do {
     n1,
     n2,
     resultado,
-    hora: new Date().toLocaleDateString(),
+    hora: new Date().toLocaleString(),
   };
 
   historial.unshift(registro);
